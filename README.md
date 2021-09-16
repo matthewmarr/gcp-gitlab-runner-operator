@@ -69,6 +69,9 @@ NAMESPACE   NAME            URL                  TAGS                  REGISTERE
 gitlab      runner-sample   https://gitlab.com   [sample_tag_1...]     false         Pending Secret Creation
 ```
 
+## Workload Identity
+If Workload Identity will be used by the runners to authenticate to GCP services, supply the Service Account name under `spec.runnerServiceAccount.workloadIdentityServiceAccount`. This will autogenerate the K8s service account with an annotation for the Workload Identity service account.
+
 ## Create secret(s)
 
 In order for the operator create the required resources for the GitLab runner, you will need to create a secret containing the GitLab runner registration token. If you specified a `imagePullSecretName` or `cacertSecretName`, you will also need to create secrets for those values.
@@ -121,13 +124,3 @@ NAMESPACE   NAME            URL                  TAGS                   REGISTER
 gitlab      runner-sample   https://gitlab.com   [prod gke-us-east]     true         Running
 gitlab1     runner-sample   https://gitlab.com   [prod1 gke-us-east1]   true         Running
 ```
-
-
-
-## Specify in documentation ##
-* No Privileged Containers
-
-
-## TODO ##
-* Automatic Tag based on ACM
-* GCS for cache - https://docs.gitlab.com/runner/install/kubernetes.html#google-cloud-storage-gcs
