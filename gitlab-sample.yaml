@@ -1,0 +1,19 @@
+apiVersion: runner.gscout.xyz/v1alpha1
+kind: Runner
+metadata:
+  name: runner-sample
+  namespace: gitlab
+spec:
+  maxConcurrentJobs: 10
+  credentials:
+    tokenSecretName: gitlab-runner-token
+    cacertSecretName: "" # Optional
+  runnerServiceAccount:
+    name: gitlab-runner
+    imagePullSecretName: ""   # Optional
+    workloadIdentityServiceAccount: "" # Optional
+  tagList:
+  - project-mmarr-test-project
+  - cluster-operator
+  url: https://gitlab.com
+  jobNamespace: gitlab

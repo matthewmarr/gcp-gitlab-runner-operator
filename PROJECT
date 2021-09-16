@@ -1,0 +1,13 @@
+domain: gscout.xyz
+layout: go.kubebuilder.io/v3
+projectName: gitlab-runner-operator
+repo: gitlab.com/mmarr-demo/gitlab-runner-operator
+resources:
+- crdVersion: v1
+  group: runner
+  kind: Runner
+  version: v1alpha1
+version: 3-alpha
+plugins:
+  manifests.sdk.operatorframework.io/v2: {}
+  scorecard.sdk.operatorframework.io/v2: {}
